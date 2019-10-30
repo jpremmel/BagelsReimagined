@@ -1,0 +1,13 @@
+@using BagelsR.Models
+
+<h1>Bagels</h1>
+
+@if(Model.Count == 0)
+{
+    <p>No bagels have been added yet!</p>
+}
+@foreach (Bagel bagel in Model)
+{
+    <p>@bagel.Flavor</p>
+    <p><strong>Suggested Toppings:</strong> @bagel.SuggestedToppings</p><br>
+}

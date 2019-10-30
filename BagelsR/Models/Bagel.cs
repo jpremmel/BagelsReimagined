@@ -18,7 +18,6 @@ namespace BagelsR.Models
             var result = apiCallTask.Result;
 
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-            Console.WriteLine(jsonResponse);
             List<Bagel> bagelList = JsonConvert.DeserializeObject<List<Bagel>>(jsonResponse.ToString());
             
             return bagelList;

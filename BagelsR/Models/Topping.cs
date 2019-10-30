@@ -15,9 +15,9 @@ namespace BagelsR.Models
         {
             var apiCallTask = ApiHelper.ApiCall("toppings");
             var result = apiCallTask.Result;
+            Console.WriteLine(result.GetType());
 
             JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-            Console.WriteLine(jsonResponse);
             List<Topping> toppingList = JsonConvert.DeserializeObject<List<Topping>>(jsonResponse.ToString());
 
             return toppingList;
