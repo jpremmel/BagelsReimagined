@@ -42,5 +42,12 @@ namespace BagelsR.Controllers
             await Bagel.CreateBagel(bagel);
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> Delete(int id)
+        { 
+            var bagel = Bagel.GetBagel(id);
+            await Bagel.DeleteBagel(bagel);
+            return RedirectToAction("Index");
+        }
     }
 }

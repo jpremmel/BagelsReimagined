@@ -46,5 +46,11 @@ namespace BagelsR.Models
             var apiCallTask = await ApiHelper.ApiCallCreateBagel(bagel);
             return bagel.BagelId;
         }
+
+        public static async Task<int> DeleteBagel(Bagel bagel)
+        {
+            var apiCallTask = await ApiHelper.ApiCallDeleteBagel(bagel);
+            return bagel.BagelId;
+        }
     }
 }

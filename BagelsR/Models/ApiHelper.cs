@@ -40,5 +40,14 @@ namespace BagelsR.Models
             var response = await client.ExecuteTaskAsync(request);
             return response.Content;
         }
+
+        public static async Task<string> ApiCallDeleteBagel(Bagel bagel)
+        {
+            RestClient client = new RestClient($"http://localhost:5000/api/bagels/{bagel.BagelId}");
+            RestRequest request = new RestRequest("/", Method.DELETE);
+            request.AddJsonBody(bagel);
+            var response = await client.ExecuteTaskAsync(request);
+            return response.Content;
+        }
     }
 }
