@@ -1,44 +1,37 @@
-body 
-{
+body {
     background-color: #F9D5BB;
     color: #3C3D47;
 }
 
-h1
-{
-    font-size: 150px;
+h1 {
+    font-size: 75px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
 
-
-
-p
-{
+p {
   font-size: 20px;
   font-family: 'Poppins', sans-serif;
 }
-.btn-default
-{
+
+.btn-default {
   background-color: #F66767;
   color: #3C3D47;
   border-color: #3C3D47;
   border-width: 2px;
   font-family: 'Poppins', sans-serif;
   border-radius: 10px;
+  font-weight: bold;
 }
 
-.btn-default:hover
-{
+.btn-default:hover {
   background-color: #D35656;
   border-color: #3C3D47;
 }
 
-a, a:hover
-{
+a, a:hover {
    color: #3C3D47;
 }
-
 
 .navbar {
   width: 100%;
@@ -93,15 +86,18 @@ a, a:hover
 }
 
 .animation-box {
-
   background-color: #F9D5BB;
   position: relative;
   text-align: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
+
+.animation-box h1 {
+  font-size: 150px;
+}
+
 .reimagined{
   display: block;
   margin-left: auto;
