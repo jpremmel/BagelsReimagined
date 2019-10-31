@@ -13,7 +13,7 @@ namespace BagelsR.Models
 
         public static List<Topping> GetToppings()
         {
-            var apiCallTask = ApiHelper.ApiCall("toppings");
+            var apiCallTask = ApiHelper.ApiCall("toppings", 0);
             var result = apiCallTask.Result;
             Console.WriteLine(result.GetType());
 

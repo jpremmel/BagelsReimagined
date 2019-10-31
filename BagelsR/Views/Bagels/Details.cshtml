@@ -1,4 +1,6 @@
 @using BagelsR.Models
+@model BagelsR.Models.Bagel
+@*The model on this page is a Bagel object*@
 
 <!DOCTYPE html>
 <html>
@@ -15,15 +17,12 @@
             <a href="/Toppings/Index"><i class="fas fa-pepper-hot"></i> Toppings </a>
         </div>
         <div class="container">
-            <h1>Bagels</h1>
-            @if(Model.Count == 0)
-            {
-                <p>No bagels have been added yet!</p>
-            }
-            @foreach (Bagel bagel in Model)
-            {
-                <p>@Html.ActionLink(@bagel.Flavor, "Details", new { id = bagel.BagelId })</p>
-            }
+            <h1>Bagel: @Model.Flavor</h1>
+            <p><strong>Suggested Toppings: </strong>@Model.SuggestedToppings</p>
+            
+            <button class="btn btn-default">@Html.ActionLink("Edit This Bagel", "Edit", new { id = @Model.BagelId })</button>
+            <button class="btn btn-default">@Html.ActionLink("Delete This Bagel", "Delete", new { id = @Model.BagelId })</button>
+            
         </div>
     </body>
 </html>
