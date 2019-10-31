@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using BagelsR.Models;
+using System.Threading.Tasks;
 
 namespace BagelsR.Controllers
 {
@@ -24,10 +25,22 @@ namespace BagelsR.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Bagel bagel)
+        public async Task<IActionResult> Edit(Bagel bagel)
         {
-            Bagel.EditBagel(bagel);
+            await Bagel.EditBagel(bagel);
             return RedirectToAction("Details", new { id = bagel.BagelId });
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Bagel bagel)
+        {
+            await Bagel.CreateBagel(bagel);
+            return RedirectToAction("Index");
         }
     }
 }

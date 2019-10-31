@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Threading.Tasks;
 
 namespace BagelsR.Models
 {
@@ -34,9 +35,16 @@ namespace BagelsR.Models
             return bagel;
         }
 
-        public static async void EditBagel(Bagel bagel)
+        public static async Task<int> EditBagel(Bagel bagel)
         {
             var apiCallTask = await ApiHelper.ApiCallEditBagel(bagel);
+            return bagel.BagelId;
+        }
+
+        public static async Task<int> CreateBagel(Bagel bagel)
+        {
+            var apiCallTask = await ApiHelper.ApiCallCreateBagel(bagel);
+            return bagel.BagelId;
         }
     }
 }

@@ -31,5 +31,14 @@ namespace BagelsR.Models
             var response = await client.ExecuteTaskAsync(request);
             return response.Content;
         }
+
+        public static async Task<string> ApiCallCreateBagel(Bagel bagel)
+        {
+            RestClient client = new RestClient($"http://localhost:5000/api/bagels");
+            RestRequest request = new RestRequest("/", Method.POST);
+            request.AddJsonBody(bagel);
+            var response = await client.ExecuteTaskAsync(request);
+            return response.Content;
+        }
     }
 }
