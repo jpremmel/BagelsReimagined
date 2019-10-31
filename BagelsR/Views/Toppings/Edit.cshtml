@@ -1,4 +1,6 @@
 @using BagelsR.Models
+@model BagelsR.Models.Topping
+@*The model on this page is a Topping object*@
 
 <!DOCTYPE html>
 <html>
@@ -16,25 +18,17 @@
             <a href="/Toppings/Index"><i class="fas fa-pepper-hot"></i> Toppings </a>
         </div>
         <div class="container">
-            <h1>Toppings</h1>
+            <h1>Edit Topping: @Model.Name</h1>
+            
+            @using (Html.BeginForm())
+            {
+                @Html.HiddenFor(model => model.ToppingId)
 
-            @if(Model.Count == 0)
-            {
-                <p>No toppings have been added yet!</p>
+                @Html.Label("Name", "Name: ")
+                @Html.EditorFor(model => model.Name, new { @class="form-control", required="required" })
+
+                <input type="submit" value="Update Topping" class="btn btn-default">
             }
-            @foreach (Topping topping in Model)
-            {
-                <div class="row">
-                    <div class="col-xs-3 col-xs-offset-3">
-                        <p>@topping.Name</p>
-                    </div>
-                    <div class="col-xs-3">
-                        <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = topping.ToppingId })</button>
-                        <button class="btn btn-default">@Html.ActionLink("Delete", "Delete", new { id = topping.ToppingId })</button>
-                    </div>
-                </div>
-            }
-            <button class="btn btn-default create">@Html.ActionLink("Add a topping", "Create")</button>
         </div>
     </body>
 </html>

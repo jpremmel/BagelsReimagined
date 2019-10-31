@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Threading.Tasks;
 
 namespace BagelsR.Models
 {
@@ -21,6 +22,35 @@ namespace BagelsR.Models
             List<Topping> toppingList = JsonConvert.DeserializeObject<List<Topping>>(jsonResponse.ToString());
 
             return toppingList;
+        }
+
+        public static Topping GetTopping(int id)
+        {
+            var apiCallTask = ApiHelper.ApiCall("toppings", id);
+            var result = apiCallTask.Result;
+
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+            Topping topping = JsonConvert.DeserializeObject<Topping>(jsonResponse.ToString());
+
+            return topping;
+        }
+
+        public static async Task<int> EditTopping(Topping topping)
+        {
+            var apiCallTask = await ApiHelper.ApiCallEditTopping(topping);
+            return topping.ToppingId;
+        }
+
+        public static async Task<int> CreateTopping(Topping topping)
+        {
+            var apiCallTask = await ApiHelper.ApiCallCreateTopping(topping);
+            return topping.ToppingId;
+        }
+
+        public static async Task<int> DeleteTopping(Topping topping)
+        {
+            var apiCallTask = await ApiHelper.ApiCallDeleteTopping(topping);
+            return topping.ToppingId;
         }
     }
 }

@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link href="~/css/styles.css" rel="stylesheet" type="text/css">
         <script src="https://kit.fontawesome.com/a26d2ada82.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="navbar">
@@ -24,7 +25,7 @@
             {
                 <p>@Html.ActionLink(@bagel.Flavor, "Details", new { id = bagel.BagelId })</p>
             }
-            <button class="btn btn-default">@Html.ActionLink("Add a bagel", "Create")</button>
+            <button class="btn btn-default create">@Html.ActionLink("Add a bagel", "Create")</button>
         </div>
     </body>
 </html>

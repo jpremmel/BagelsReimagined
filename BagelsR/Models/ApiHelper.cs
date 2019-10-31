@@ -49,5 +49,32 @@ namespace BagelsR.Models
             var response = await client.ExecuteTaskAsync(request);
             return response.Content;
         }
+
+        public static async Task<string> ApiCallEditTopping(Topping topping)
+        {
+            RestClient client = new RestClient($"http://localhost:5000/api/toppings/{topping.ToppingId}");
+            RestRequest request = new RestRequest("/", Method.PUT);
+            request.AddJsonBody(topping);
+            var response = await client.ExecuteTaskAsync(request);
+            return response.Content;
+        }
+
+        public static async Task<string> ApiCallCreateTopping(Topping topping)
+        {
+            RestClient client = new RestClient($"http://localhost:5000/api/toppings");
+            RestRequest request = new RestRequest("/", Method.POST);
+            request.AddJsonBody(topping);
+            var response = await client.ExecuteTaskAsync(request);
+            return response.Content;
+        }
+
+        public static async Task<string> ApiCallDeleteTopping(Topping topping)
+        {
+            RestClient client = new RestClient($"http://localhost:5000/api/toppings/{topping.ToppingId}");
+            RestRequest request = new RestRequest("/", Method.DELETE);
+            request.AddJsonBody(topping);
+            var response = await client.ExecuteTaskAsync(request);
+            return response.Content;
+        }
     }
 }
