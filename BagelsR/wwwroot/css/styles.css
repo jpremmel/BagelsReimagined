@@ -6,10 +6,12 @@ body
 
 h1
 {
-    font-size: 80px;
+    font-size: 150px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
+
+
 
 p
 {
@@ -75,3 +77,36 @@ a, a:hover
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
+@keyframes fadeInDown {
+   0% {
+      opacity: 0;
+      transform: translateY(-150px);
+   }
+   50% {
+      opacity: .2;
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.animation-box {
+
+  background-color: #F9D5BB;
+  position: relative;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.reimagined{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  animation-name: fadeInDown;
+  animation-duration: 8s;
+}
+
